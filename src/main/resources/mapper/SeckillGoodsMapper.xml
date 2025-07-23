@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.kcaco.seckill.modules.skgoods.mapper.SeckillGoodsMapper">
+
+    <resultMap id="SeckillGoodsMap" type="top.kcaco.seckill.modules.skgoods.domain.entity.SeckillGoods">
+        <id property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="activityId" column="activity_id" jdbcType="VARCHAR"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="subTitle" column="sub_title" jdbcType="VARCHAR"/>
+        <result property="introduction" column="introduction" jdbcType="VARCHAR"/>
+        <result property="initialStock" column="initial_stock" jdbcType="INTEGER"/>
+        <result property="availableStock" column="available_stock" jdbcType="INTEGER"/>
+        <result property="stockWarmUp" column="stock_warm_up" jdbcType="INTEGER"/>
+        <result property="originalPrice" column="original_price" jdbcType="NUMERIC"/>
+        <result property="seckillPrice" column="seckill_price" jdbcType="NUMERIC"/>
+        <result property="startTime" column="start_time" jdbcType="TIMESTAMP"/>
+        <result property="endTime" column="end_time" jdbcType="TIMESTAMP"/>
+        <result property="rules" column="rules" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Rich_Column_List">
+        sg.id, sg.activity_id, sg.title, sg.sub_title, sg.introduction, sg.initial_stock, sg.available_stock,
+        sg.stock_warm_up, sg.original_price, sg.seckill_price, sg.start_time, sg.end_time, sg.rules, sg.status,
+        sg.create_by, sg.create_time, sg.update_by, sg.update_time
+    </sql>
+
+    <select id="listSeckillGoodsPage" resultType="top.kcaco.seckill.modules.skgoods.domain.entity.SeckillGoods">
+        select <include refid="Rich_Column_List"/>
+        from seckill_goods sg
+        <where>
+
+        </where>
+    </select>
+
+</mapper>
+

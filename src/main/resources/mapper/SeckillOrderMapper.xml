@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.kcaco.seckill.modules.skorder.mapper.SeckillOrderMapper">
+
+    <resultMap id="SeckillOrderMap" type="top.kcaco.seckill.modules.skorder.domain.entity.SeckillOrder">
+        <id property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="orderNo" column="order_no" jdbcType="VARCHAR"/>
+        <result property="userId" column="user_id" jdbcType="VARCHAR"/>
+        <result property="seckillGoodsId" column="seckill_goods_id" jdbcType="VARCHAR"/>
+        <result property="activityId" column="activity_id" jdbcType="VARCHAR"/>
+        <result property="seckillGoodsTitle" column="seckill_goods_title" jdbcType="VARCHAR"/>
+        <result property="seckillPrice" column="seckill_price" jdbcType="NUMERIC"/>
+        <result property="quantity" column="quantity" jdbcType="NUMERIC"/>
+        <result property="totalAmount" column="total_amount" jdbcType="NUMERIC"/>
+        <result property="actualPayAmount" column="actual_pay_amount" jdbcType="NUMERIC"/>
+        <result property="payType" column="pay_type" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="cancelReason" column="cancel_reason" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="deleted" column="deleted" jdbcType="INTEGER"/>
+    </resultMap>
+
+
+    <sql id="Rich_Column_List">
+        so.id, so.order_no, so.user_id, so.seckill_goods_id, so.activity_id, so.seckill_goods_title, so.seckill_price, so.quantity,
+        so.total_amount, so.actual_pay_amount, so.pay_type, so.status, so.cancel_reason, so.remark,
+        so.create_by, so.create_time, so.update_by, so.update_time, so.deleted
+    </sql>
+
+    <select id="listSeckillOrderPage" resultType="top.kcaco.seckill.modules.skorder.domain.entity.SeckillOrder">
+        select <include refid="Rich_Column_List"/>
+        from seckill_order so
+        <where>
+
+        </where>
+    </select>
+
+</mapper>
+

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.kcaco.seckill.modules.skactivity.mapper.SeckillActivityMapper">
+
+    <resultMap id="SeckillActivityMap" type="top.kcaco.seckill.modules.skactivity.domain.entity.SeckillActivity">
+        <id property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+        <result property="startTime" column="start_time" jdbcType="TIMESTAMP"/>
+        <result property="endTime" column="end_time" jdbcType="TIMESTAMP"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="deleted" column="deleted" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Rich_Column_List">
+        sa.id, sa.title, sa.description, sa.start_time, sa.end_time, sa.status,
+        sa.create_by, sa.create_time, sa.update_by, sa.update_time, sa.deleted
+    </sql>
+
+    <select id="listSeckillActivityPage"
+            resultType="top.kcaco.seckill.modules.skactivity.domain.entity.SeckillActivity">
+        select <include refid="Rich_Column_List"/>
+        from seckill_activity sa
+        <where>
+
+        </where>
+    </select>
+
+</mapper>
+
